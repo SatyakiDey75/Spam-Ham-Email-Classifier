@@ -29,7 +29,6 @@ This can be used to filter spam emails from a number of emails. This has been do
 [Apache License 2.0 © Satyaki Dey](https://github.com/SatyakiDey75/Spam-Ham-Email-Classifier/blob/main/LICENSE)
 
 ##
-##
 ## What next?
 I will be working on this project to make it more capable using Machine Learning Algorithms and add a lot more filtration techniques.
 
