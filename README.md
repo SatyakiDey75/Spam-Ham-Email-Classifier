@@ -23,6 +23,11 @@ This can be used to filter spam emails from a number of emails. This has been do
 - How to stop the script? Ctrl+C (control+C for Mac) 
 - You get ``` PermissionError: [Errno 13] Permission denied: ``` ? Close the csv files in the MS Excel app and try again.
 - For any other problems, feel free to raise an issue.
+
+##
+## License
+[Apache License 2.0 © Satyaki Dey](https://github.com/SatyakiDey75/Spam-Ham-Email-Classifier/blob/main/LICENSE)
+
 ##
 ##
 ## What next?
