@@ -6,6 +6,7 @@ This can be used to filter spam emails from a number of emails. This has been do
 
 ##
 ## How to Install
+          
 
 1. Create a ```python``` virtual environment. 
 2. Clone the repo ``` git clone https://github.com/SatyakiDey75/Spam-Ham-Email-Classifier ``` or download the repository.
