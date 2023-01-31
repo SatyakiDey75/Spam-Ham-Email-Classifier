@@ -3,7 +3,8 @@ import csv
 
 def content_filtration(body):
     points=0
-    body_list=body.split(" ")
+    body_lower=body.lower()
+    body_list=body_lower.split(" ")
     f=open("spam_emails.csv","r")
     s=csv.reader(f)
     for j in s:
@@ -26,10 +27,10 @@ def content_filtration(body):
     error=error_tool.check(body)
     if (len(body_list)>=25 and len(error)>=8) or (len(body_list)<25 and len(error)>0.25*len(body_list)):
         points+=5
-    if points>=5:
-        with open("spam_emails.csv",'a',newline="") as f:
+    if points>=5  and count!=len(body_list):
+        with open("spam_emails.csv",'a',newline="", encoding='utf-8') as f:
             csvwriter=csv.writer(f)
-            column1="Subject: "+body
+            column1="Subject: "+body_lower
             row=[column1,'1']
             csvwriter.writerow(row)
     return points
@@ -68,7 +69,8 @@ def domain_filtration(id):
     return domain_points+username_points
 
 def header_filtration(header):
-    header_list=header.split(" ")
+    header_lower=header.lower()
+    header_list=header_lower.split(" ")
     f=open("headers.csv","r")
     points=0
     s=csv.reader(f)
@@ -92,28 +94,29 @@ def header_filtration(header):
     error=error_tool.check(header)
     if (len(header_list)>=25 and len(error)>=8) or (len(header_list)<25 and len(error)>0.25*len(header_list)):
         points+=5
-    if points>=5:
-        with open("headers.csv",'a',newline="") as f:
+    if points>=5  and count!=len(header_list):
+        with open("headers.csv",'a',newline="", encoding='utf-8') as f:
             csvwriter=csv.writer(f)
-            column2="Subject: "+header
+            column2="Subject: "+header_lower
             row=['spam',column2,'1']
             csvwriter.writerow(row)
     return points
 
 def mark_as_spam(header,body):
-    with open("spam_emails.csv",'a',newline="") as f:
+    with open("spam_emails.csv",'a',newline="", encoding='utf-8') as f:
         csvwriter=csv.writer(f)
-        column1="Subject: "+body
+        column1="Subject: "+body.lower()
         row=[column1,'1']
         csvwriter.writerow(row)
-    with open("headers.csv",'a',newline="") as f1:
+    with open("headers.csv",'a',newline="", encoding='utf-8') as f1:
         csvwriter=csv.writer(f1)
-        column2="Subject: "+header
+        column2="Subject: "+header.lower()
         row=['spam',column2,'1']
         csvwriter.writerow(row)
     return "Email marked as spam successfully"
 
 id=input("Enter the email id of the sender for domain filtration: ")
+id=id.lower()
 header=input("Enter the header of the email for header filtration: ")
 body=input("Enter the content of the email for content filtration: ")
 print("-------------Checking--------------")
@@ -121,11 +124,11 @@ id_points=domain_filtration(id)
 header_points=header_filtration(header)
 print("-----This might take some time-----")
 body_points=content_filtration(body)
-if id_points+header_points+body_points>10:
+if id_points+header_points+body_points>=5:
     print("It is a spam email.")
 else:
     print("It is not a spam email")
-    if "sale" in id or "lottery" in id or "product" in id:
+    if "sale" in id or "lottery" in id or "product" in id or "congrat" in body.lower():
         choice=input("Do you want to classify this email as spam? (Y/N)")
         if choice.lower()=="y":
             choice1=input("All such future emails will be marked as spam. Do you want to continue? (Y/N)")
