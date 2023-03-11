@@ -17,6 +17,7 @@ This can be used to filter spam emails from a number of emails. This has been do
 - To initiate the program, run ``` python3 Main.py```
 - Now enter the details as asked by the proogram.
 - The program will check the details and give you the result.
+- Please check the ``` requirements.txt ``` file once before running the program.
 
 ##
 ## FAQ
