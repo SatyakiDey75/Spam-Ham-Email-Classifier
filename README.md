@@ -8,7 +8,7 @@ This can be used to filter spam emails from a number of emails. This has been do
 1. Create a ```python``` virtual environment. 
 2. Clone the repo ``` git clone https://github.com/SatyakiDey75/Spam-Ham-Email-Classifier ``` or download the repository.
 3. Go to the cloned/downloaded directory ``` cd Spam-Ham-Email-Classifier ``` 
-4. Run the command: ``` pip install language-tool-python ```
+4. Check the ``` requirements.txt ``` file once before running the program.
 5. And now you are good to go :)
 
 ##
@@ -17,7 +17,6 @@ This can be used to filter spam emails from a number of emails. This has been do
 - To initiate the program, run ``` python3 Main.py```
 - Now enter the details as asked by the proogram.
 - The program will check the details and give you the result.
-- Please check the ``` requirements.txt ``` file once before running the program.
 
 ##
 ## FAQ
