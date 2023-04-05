@@ -15,7 +15,7 @@ This can be used to filter spam emails from a number of emails. This has been do
 ## Usage
 - Copy the email id, header and content of the email you want to validate.
 - To initiate the program, run ``` python3 Main.py```
-- Now enter the details as asked by the proogram.
+- Now enter the details as asked by the program.
 - The program will check the details and give you the result.
 
 ##
